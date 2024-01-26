@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjedv2rk16xe3"]
+
+[ext_resource type="Script" path="res://Scripts/Base Level.gd" id="1_osueb"]
+[ext_resource type="PackedScene" uid="uid://dbxybr1edcxat" path="res://Scenes/House.tscn" id="2_pncvi"]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_osueb")
+
+[node name="TTP" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="House" parent="." instance=ExtResource("2_pncvi")]
+position = Vector2(23, 158)
+
+[connection signal="timeout" from="TTP" to="." method="_on_ttp_timeout"]

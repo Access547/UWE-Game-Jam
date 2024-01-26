@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyd5qdxodkisy" path="res://Assets/Art/Door.png" id="1_atv8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gjhf"]
-size = Vector2(3, 16)
+size = Vector2(3, 32.2487)
 
 [sub_resource type="Animation" id="Animation_fuxgc"]
 resource_name = "Open"
@@ -27,14 +27,14 @@ _data = {
 }
 
 [node name="Door" type="StaticBody2D"]
-rotation = 2.0944
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 8)
 texture = ExtResource("1_atv8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 8)
+position = Vector2(1.5, 7.9282)
 shape = SubResource("RectangleShape2D_1gjhf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

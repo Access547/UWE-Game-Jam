@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=8 format=3 uid="uid://ck777aksqa1dj"]
 
-[ext_resource type="Script" path="res://Prefab/character.gd" id="1_ph1sw"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
+[ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
 size = Vector2(9, 16)
@@ -9,6 +10,11 @@ size = Vector2(9, 16)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alc41"]
 radius = 0.878943
 height = 37.6665
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga0io"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrcxs"]
+bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_ph1sw")
@@ -31,3 +37,33 @@ rotation = 1.60902
 shape = SubResource("CapsuleShape2D_alc41")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Control/MarginContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ga0io")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jrcxs")
+step = 0.0
+value = 30.0
+script = ExtResource("3_yp88r")
+
+[node name="ttp" type="Timer" parent="."]

@@ -12,6 +12,6 @@ one_shot = true
 autostart = true
 
 [node name="House" parent="." instance=ExtResource("2_pncvi")]
-position = Vector2(23, 158)
+position = Vector2(23, 163)
 
 [connection signal="timeout" from="TTP" to="." method="_on_ttp_timeout"]

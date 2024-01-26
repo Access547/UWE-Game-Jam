@@ -16,3 +16,7 @@ func _process(delta):
 func _on_area_entered(area):
 	player.position = teleLocation
 	
+
+
+func _on_body_entered(body):
+	player.position = teleLocation

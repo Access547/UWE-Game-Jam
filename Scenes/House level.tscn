@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjedv2rk16xe3"]
+[gd_scene load_steps=4 format=3 uid="uid://cjedv2rk16xe3"]
 
 [ext_resource type="Script" path="res://Scripts/Base Level.gd" id="1_osueb"]
 [ext_resource type="PackedScene" uid="uid://dbxybr1edcxat" path="res://Scenes/House.tscn" id="2_pncvi"]
+[ext_resource type="PackedScene" uid="uid://cb77rkvr3w6sm" path="res://Scenes/teleporter.tscn" id="3_o2bf8"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_osueb")
@@ -13,5 +14,11 @@ autostart = true
 
 [node name="House" parent="." instance=ExtResource("2_pncvi")]
 position = Vector2(23, 158)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2229, 251)
+
+[node name="Teleporter2" parent="." instance=ExtResource("3_o2bf8")]
+position = Vector2(414, 136)
 
 [connection signal="timeout" from="TTP" to="." method="_on_ttp_timeout"]

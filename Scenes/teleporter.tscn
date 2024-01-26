@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://teleporter.gd" id="1_a7bby"]
 
 [node name="Teleporter" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_a7bby")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

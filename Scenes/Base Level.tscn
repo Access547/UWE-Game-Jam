@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2pxkd5lllgs1"]
 
-[ext_resource type="Script" path="res://Scenes/Base Level.gd" id="1_ufoo0"]
+[ext_resource type="Script" path="res://Scripts/Base Level.gd" id="1_ufoo0"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_kk0h8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r73j"]

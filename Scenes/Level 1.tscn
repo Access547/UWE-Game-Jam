@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvexw30xg0vb2"]
+
+[ext_resource type="Script" path="res://Scripts/Base Level.gd" id="1_m7eff"]
+[ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="2_fh43b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24xsn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6vxy"]
+bg_color = Color(0.4, 0.352941, 0.172549, 1)
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_m7eff")
+
+[node name="TTP" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Control/MarginContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_24xsn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k6vxy")
+value = 30.0
+script = ExtResource("2_fh43b")
+
+[connection signal="timeout" from="TTP" to="." method="_on_ttp_timeout"]

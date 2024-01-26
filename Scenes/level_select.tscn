@@ -1,5 +1,34 @@
-[gd_scene format=3 uid="uid://dtlrx6fe1622i"]
+[gd_scene load_steps=2 format=3 uid="uid://dtlrx6fe1622i"]
+
+[ext_resource type="PackedScene" uid="uid://c5c683vli4j48" path="res://Scenes/level_button.tscn" id="1_tgv5o"]
 
 [node name="Level Select" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="Level Button" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
+layout_mode = 2
+level = "res://Scenes/Level 1.tscn"
+
+[node name="Level Button2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
+layout_mode = 2
+
+[node name="Level Button3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
+layout_mode = 2
+
+[node name="Level Button4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
+layout_mode = 2
+
+[node name="Level Button5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
+layout_mode = 2

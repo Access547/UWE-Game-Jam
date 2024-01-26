@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck777aksqa1dj"]
 
-[ext_resource type="Script" path="res://Prefab/character.gd" id="1_ph1sw"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_krl75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]

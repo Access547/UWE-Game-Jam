@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx1tgn6d4myxh"]
+
+[ext_resource type="Texture2D" uid="uid://cyd5qdxodkisy" path="res://Assets/Art/Door.png" id="1_atv8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gjhf"]
+size = Vector2(3, 16)
+
+[sub_resource type="Animation" id="Animation_fuxgc"]
+resource_name = "Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.0944]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpxw6"]
+_data = {
+"Open": SubResource("Animation_fuxgc")
+}
+
+[node name="Door" type="StaticBody2D"]
+rotation = 2.0944
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 8)
+texture = ExtResource("1_atv8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 8)
+shape = SubResource("RectangleShape2D_1gjhf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gpxw6")
+}

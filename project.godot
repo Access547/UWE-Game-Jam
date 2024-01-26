@@ -27,9 +27,6 @@ window/size/window_width_override=1080
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
-[rendering]
-
-textures/canvas_textures/default_texture_filter=0
 [input]
 
 move_up={
@@ -67,3 +64,7 @@ shit={
 2d_physics/layer_1="player"
 2d_physics/layer_2="wall"
 2d_physics/layer_3="bad Guy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

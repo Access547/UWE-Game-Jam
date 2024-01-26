@@ -1,29 +1,33 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Prefab/character.gd" id="1_ph1sw"]
-[ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_krl75"]
+[ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
-size = Vector2(125, 128)
+size = Vector2(9, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alc41"]
-radius = 1.61639
-height = 106.851
+radius = 0.878943
+height = 37.6665
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_ph1sw")
+accel = 7000
+friction = 5000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_krl75")
+texture = ExtResource("2_bl4ww")
 
 [node name="playerBox" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_l3ptw")
 
 [node name="kickbox" type="Area2D" parent="."]
 position = Vector2(127, -13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kickbox"]
-position = Vector2(-17, 15)
+position = Vector2(-105, 14)
 rotation = 1.60902
 shape = SubResource("CapsuleShape2D_alc41")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck777aksqa1dj"]
+
+[ext_resource type="Script" path="res://Prefab/character.gd" id="1_ph1sw"]
+[ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_krl75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
+size = Vector2(125, 128)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alc41"]
+radius = 1.61639
+height = 106.851
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_ph1sw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_krl75")
+
+[node name="playerBox" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_l3ptw")
+
+[node name="kickbox" type="Area2D" parent="."]
+position = Vector2(127, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kickbox"]
+position = Vector2(-17, 15)
+rotation = 1.60902
+shape = SubResource("CapsuleShape2D_alc41")

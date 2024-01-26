@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0unku3361djv"]
+
+[ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_rp381"]
+[ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Prefab/character.tscn" id="2_ff7bj"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(25, 57)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(507, 316)
+texture = ExtResource("1_rp381")
+
+[node name="Character" parent="." instance=ExtResource("2_ff7bj")]
+max_speed = 600
+accel = 3000
+friction = 2000

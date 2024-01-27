@@ -616,8 +616,9 @@ teleLocation = Vector2(2186, 89)
 position = Vector2(-172, 3)
 shape = SubResource("RectangleShape2D_8oam8")
 
-[node name="Goop" parent="." instance=ExtResource("5_74jkv")]
+[node name="Goop" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_74jkv")]
 position = Vector2(108, 5)
+player = NodePath("../Character")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goop"]
 position = Vector2(71, -3.5)

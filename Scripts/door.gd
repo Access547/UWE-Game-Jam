@@ -25,3 +25,4 @@ func OpenDoor(animation: String, area: Area2D):
 		audio.pitch_scale = randf_range(0.9, 1.2)
 		audio.play()
 		opened = true
+		set_collision_layer_value(2, false)

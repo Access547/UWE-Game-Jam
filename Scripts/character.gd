@@ -8,9 +8,15 @@ var input = Vector2.ZERO
 var currentMax
 var mouse_pos
 var youwin
+@export var time: float
 @export var toilet:StaticBody2D
+@export var level: String
+
+@onready var ttp = $ttp
 
 
+func _ready():
+	StartTTP(time)
 
 func _physics_process(delta):
 	if NumberManager.canMove:
@@ -74,3 +80,34 @@ func _on_interact_area_area_exited(area):
 func youWin():
 	$HUD/youWin.visible = true
 	$"HUD/Next Level".visible = true
+	
+	
+	ttp.stop()
+	$HUD/Control/ProgressBar.visible = false
+
+func youLose():
+	$HUD/youLose.visible = true
+	NumberManager.canMove = false
+	$Sprite2D.set_texture(preload("res://Assets/Art/Player fallen.png"))
+	$Poop.visible = true
+	
+	if get_node_or_null("HUD/Dialog"):
+		$HUD/Dialog.EndDialog()
+
+
+func _on_ttp_timeout():
+	youLose()
+	
+	
+func StartTTP(time):
+	ttp.start(time)
+
+
+
+
+func _on_replay_pressed():
+	get_tree().change_scene_to_file(level)
+
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")

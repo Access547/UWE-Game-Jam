@@ -44,5 +44,4 @@ func _on_timer_timeout():
 
 func EndDialog():
 		NumberManager.canMove = true
-		print("done!")
 		queue_free()

@@ -1,6 +1,8 @@
 extends ProgressBar
 
-@onready var ttp = $"../../../../ttp"
+
+@onready var ttp = $"../../../ttp"
+
 
 
 

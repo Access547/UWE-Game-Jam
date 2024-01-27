@@ -149,7 +149,7 @@ _data = {
 "Fade out": SubResource("Animation_3i3bd")
 }
 
-[node name="Dialog" type="Control"]
+[node name="Dialog" type="Control" groups=["Dialog"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -604,10 +604,6 @@ teleLocation = Vector2(2186, 89)
 position = Vector2(-41, 3)
 shape = SubResource("RectangleShape2D_8oam8")
 
-[node name="Door" parent="." instance=ExtResource("4_e5ogf")]
-position = Vector2(264, 130)
-scale = Vector2(-1, -1)
-
 [node name="Goop" parent="." instance=ExtResource("5_74jkv")]
 position = Vector2(108, 5)
 
@@ -629,12 +625,36 @@ position = Vector2(43, 0)
 rotation = 1.59049
 shape = SubResource("RectangleShape2D_stdnd")
 
-[node name="Fog" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
-doors = [NodePath("../Door"), NodePath("../DoorHorizontal")]
+[node name="Fog Dining Room" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
+doors = [NodePath("../Door Dining Room2"), NodePath("../Door Dining Room")]
 
-[node name="Polygon2D" type="Polygon2D" parent="Fog"]
+[node name="Polygon2D" type="Polygon2D" parent="Fog Dining Room"]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(271, 34, 575, 34, 575, 194, 271, 194, 271, 130, 264, 130, 264, 98, 271, 98)
+polygon = PackedVector2Array(271, 34, 543, 34, 543, 27, 575, 27, 575, 194, 271, 194, 271, 130, 264, 130, 264, 98, 271, 98)
 
-[node name="DoorHorizontal" parent="." instance=ExtResource("8_5hv5v")]
+[node name="Door Dining Room" parent="." instance=ExtResource("8_5hv5v")]
 position = Vector2(575, 24)
+
+[node name="Door Dining Room2" parent="." instance=ExtResource("4_e5ogf")]
+position = Vector2(264, 130)
+rotation = 3.14159
+
+[node name="Fog Kitchen" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
+doors = [NodePath("../Door Kitchen"), NodePath("../Door Kitchen2")]
+
+[node name="Polygon2D" type="Polygon2D" parent="Fog Kitchen"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(63, -94, 63, 24, 95, 24, 95, 18, 255, 18, 255, -62, 262, -62, 262, -94)
+
+[node name="Door Kitchen" parent="." instance=ExtResource("8_5hv5v")]
+position = Vector2(95, 24)
+
+[node name="Door Kitchen2" parent="." instance=ExtResource("4_e5ogf")]
+position = Vector2(262, -94)
+
+[node name="Fog Hallway" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
+doors = [NodePath("../Door Kitchen2"), NodePath("../Door Dining Room")]
+
+[node name="Polygon2D" type="Polygon2D" parent="Fog Hallway"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(265, -62, 265, -94, 575, -94, 575, 24, 543, 24, 543, 18, 272, 18, 272, -46, 543, -46, 543, -62)

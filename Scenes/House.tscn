@@ -592,7 +592,7 @@ layer_2/name = "Floor"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Character" parent="." instance=ExtResource("1_ldygy")]
-position = Vector2(139, 87)
+position = Vector2(141, 113)
 max_speed = 200
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
@@ -636,8 +636,7 @@ polygon = PackedVector2Array(271, 34, 543, 34, 543, 27, 575, 27, 575, 194, 271, 
 position = Vector2(575, 24)
 
 [node name="Door Dining Room2" parent="." instance=ExtResource("4_e5ogf")]
-position = Vector2(264, 130)
-rotation = 3.14159
+position = Vector2(261, 98)
 
 [node name="Fog Kitchen" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
 doors = [NodePath("../Door Kitchen"), NodePath("../Door Kitchen2")]

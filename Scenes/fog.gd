@@ -6,8 +6,10 @@ extends Node2D
 var polygon: Polygon2D
 var discovered = false
 
+
 func _ready():
 	polygon = get_child(0)
+	visible = true
 
 
 func _process(_delta):

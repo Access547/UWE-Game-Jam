@@ -3,6 +3,7 @@ class_name Level
 
 
 @onready var ttp = $TTP
+@onready var transition = $Transition
 
 
 
@@ -14,3 +15,11 @@ func _on_ttp_timeout():
 
 func StartTTP(time):
 	ttp.start(time)
+
+
+
+func Transition():
+	transition.play("Transition")
+
+
+

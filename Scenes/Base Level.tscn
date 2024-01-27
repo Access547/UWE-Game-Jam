@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kosn2"]
 bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
 
-[node name="BaseLevel" type="Node2D"]
+[node name="BaseLevel" type="Node2D" groups=["Base"]]
 script = ExtResource("1_ufoo0")
 
 [node name="TTP" type="Timer" parent="."]

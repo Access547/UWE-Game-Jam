@@ -13,10 +13,8 @@ var youwin
 @export var level: String
 
 @onready var ttp = $ttp
+@onready var music = $AudioStreamPlayer2D
 
-
-func _ready():
-	StartTTP(time)
 
 func _physics_process(delta):
 	if NumberManager.canMove:
@@ -86,22 +84,25 @@ func youWin():
 	$HUD/Control/ProgressBar.visible = false
 
 func youLose():
+	
+	music.set_stream(load("res://Assets/Sounds/Music/poop_game_endscreen.wav"))
+	music.play(0)
 	$HUD/youLose.visible = true
-	NumberManager.canMove = false
+	
 	$Sprite2D.set_texture(preload("res://Assets/Art/Player fallen.png"))
 	$Poop.visible = true
+	$HUD/Control/ProgressBar.visible = false
 	
 	if get_node_or_null("HUD/Dialog"):
 		$HUD/Dialog.EndDialog()
-
+	NumberManager.canMove = false
 
 func _on_ttp_timeout():
 	youLose()
 	
 	
-func StartTTP(time):
+func StartTTP():
 	ttp.start(time)
-
 
 
 
@@ -111,3 +112,7 @@ func _on_replay_pressed():
 
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
+
+
+func ChangeCanMove():
+	NumberManager.canMove = !NumberManager.canMove

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=14 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
 [ext_resource type="Texture2D" uid="uid://dutdtbbi0qkll" path="res://Assets/Art/Poop stain.png" id="2_pcg3d"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
+[ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
 size = Vector2(9, 16)
@@ -16,6 +17,84 @@ size = Vector2(5.2637, 0.968359)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrcxs"]
 bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
+
+[sub_resource type="Animation" id="Animation_g5rid"]
+resource_name = "Default"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Find the toilet")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"ChangeCanMove"
+}, {
+"args": [],
+"method": &"StartTTP"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ChangeCanMove"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Control/ProgressBar:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gv78i"]
+_data = {
+"Default": SubResource("Animation_g5rid")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5duls"]
 size = Vector2(9, 16)
@@ -158,6 +237,23 @@ theme_override_colors/icon_normal_color = Color(0.0980392, 0.0980392, 0.0980392,
 theme_override_font_sizes/font_size = 12
 text = "Menu"
 
+[node name="Panel" type="Panel" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Find the toilet" parent="HUD/Panel" instance=ExtResource("6_2likp")]
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Panel"]
+libraries = {
+"": SubResource("AnimationLibrary_gv78i")
+}
+autoplay = "Default"
+
 [node name="ttp" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
@@ -173,6 +269,9 @@ collision_mask = 48
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5duls")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
 
 [connection signal="pressed" from="HUD/youLose/Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="HUD/youLose/Menu" to="." method="_on_menu_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=11 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
+[ext_resource type="Texture2D" uid="uid://dutdtbbi0qkll" path="res://Assets/Art/Poop stain.png" id="2_pcg3d"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
 
@@ -24,6 +25,11 @@ collision_mask = 34
 script = ExtResource("1_ph1sw")
 accel = 7000
 friction = 5000
+
+[node name="Poop" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("2_pcg3d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_bl4ww")
@@ -58,26 +64,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -38.0
-offset_top = -2.0
-offset_right = 42.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
-
-[node name="ProgressBar" type="ProgressBar" parent="HUD/Control/MarginContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Control"]
 layout_mode = 2
+offset_left = 50.0
+offset_right = 270.0
+offset_bottom = 12.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ga0io")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jrcxs")
 step = 0.0
 value = 30.0
+show_percentage = false
 script = ExtResource("3_yp88r")
 
 [node name="Next Level" type="Button" parent="HUD"]
@@ -107,7 +103,65 @@ offset_right = 151.0
 offset_bottom = 44.0
 text = "You shittedwe"
 
+[node name="youLose" type="Panel" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/youLose"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -41.5
+offset_bottom = -18.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Browned out..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Replay" type="Button" parent="HUD/youLose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = 34.0
+offset_right = 4.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Replay?"
+
+[node name="Menu" type="Button" parent="HUD/youLose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = 54.5
+offset_right = 26.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/icon_normal_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+
 [node name="ttp" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
 
 [node name="Kick Timer" type="Timer" parent="."]
 wait_time = 0.05
@@ -120,6 +174,9 @@ collision_mask = 48
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5duls")
 
+[connection signal="pressed" from="HUD/youLose/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="HUD/youLose/Menu" to="." method="_on_menu_pressed"]
+[connection signal="timeout" from="ttp" to="." method="_on_ttp_timeout"]
 [connection signal="timeout" from="Kick Timer" to="." method="_on_kick_timer_timeout"]
 [connection signal="area_entered" from="interactable" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="interactable" to="." method="_on_interact_area_area_exited"]

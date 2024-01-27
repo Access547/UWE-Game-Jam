@@ -680,7 +680,9 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(141, 113)
 collision_mask = 50
 max_speed = 200
+time = 10.0
 toilet = NodePath("../Toilet")
+level = "res://Scenes/House level.tscn"
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
 position = Vector2(485, -17)
@@ -914,6 +916,7 @@ polygon = PackedVector2Array(2015, 121, 2047, 121, 2047, 114, 2111, 114, 2111, -
 position = Vector2(2262, -14)
 
 [node name="Fog9" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
+visible = false
 doors = [NodePath("../DoorVertical")]
 
 [node name="Polygon2D" type="Polygon2D" parent="Fog9"]

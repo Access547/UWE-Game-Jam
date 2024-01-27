@@ -7,9 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
 size = Vector2(9, 16)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_alc41"]
-radius = 0.878943
-height = 37.6665
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v3q5"]
+size = Vector2(5.2637, 0.968359)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga0io"]
 
@@ -17,6 +16,7 @@ height = 37.6665
 bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
 
 [node name="Character" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_ph1sw")
 accel = 7000
 friction = 5000
@@ -28,16 +28,17 @@ texture = ExtResource("2_bl4ww")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_l3ptw")
 
-[node name="kickbox" type="Area2D" parent="."]
+[node name="kickbox" type="Area2D" parent="."] groups=["Kick"]]
 visible = false
 position = Vector2(127, -13)
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kickbox"]
-position = Vector2(-105, 14)
-rotation = 1.60902
-shape = SubResource("CapsuleShape2D_alc41")
+position = Vector2(-123.788, 13)
+scale = Vector2(0.679241, 6.09425)
+shape = SubResource("RectangleShape2D_2v3q5")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -70,3 +71,9 @@ value = 30.0
 script = ExtResource("3_yp88r")
 
 [node name="ttp" type="Timer" parent="."]
+
+[node name="Kick Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Kick Timer" to="." method="_on_kick_timer_timeout"]

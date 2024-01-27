@@ -39,19 +39,14 @@ func look_at_mouse():
 	look_at(get_global_mouse_position())
 	
 func kick():
-	$kickbox.monitoring = false
+	$kickbox/CollisionShape2D.disabled = false
 	#ADD ANIMATION LOGIC HERE
 	#play kick animation
 	#when kick animation is done disable kickbox again
+	$"Kick Timer".start()
 
 
 
 
-	
-	
-	
-	
-	
-
-
-
+func _on_kick_timer_timeout():
+	$kickbox/CollisionShape2D.disabled = true

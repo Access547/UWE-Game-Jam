@@ -7,15 +7,20 @@ var input = Vector2.ZERO
 @export var goopspeed = 100
 var currentMax
 var mouse_pos
+var youwin
+@export var toilet:StaticBody2D
 
 
 
 func _physics_process(delta):
-	player_movement(delta)
+	if toilet.toilettimeHere == false:
+		player_movement(delta)
 	look_at_mouse()
 	
 	if Input.is_action_just_pressed("kick"):
 		kick()
+	if toilet.toilettimeHere == true:
+		youWin()
 	
 	
 func get_input():
@@ -64,3 +69,7 @@ func _on_interact_area_area_exited(area):
 	if area.get_collision_layer() == 16:
 		max_speed = currentMax
 	
+	
+func youWin():
+	$HUD/youWin.visible = true
+	$"HUD/Next Level".visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=10 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
@@ -16,8 +16,11 @@ size = Vector2(5.2637, 0.968359)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrcxs"]
 bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5duls"]
+size = Vector2(9, 16)
+
 [node name="Character" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_ph1sw")
 accel = 7000
 friction = 5000
@@ -60,6 +63,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -2.0
+offset_right = 42.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 200
@@ -73,10 +80,46 @@ step = 0.0
 value = 30.0
 script = ExtResource("3_yp88r")
 
+[node name="Next Level" type="Button" parent="HUD"]
+visible = false
+offset_left = 129.0
+offset_top = 136.0
+offset_right = 214.0
+offset_bottom = 167.0
+text = "Next level"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="youWin" type="Panel" parent="HUD"]
+visible = false
+offset_left = 112.0
+offset_top = 71.0
+offset_right = 232.0
+offset_bottom = 110.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/youWin"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 151.0
+offset_bottom = 44.0
+text = "You shittedwe"
+
 [node name="ttp" type="Timer" parent="."]
 
 [node name="Kick Timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 
+[node name="interactable" type="Area2D" parent="."]
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5duls")
+
 [connection signal="timeout" from="Kick Timer" to="." method="_on_kick_timer_timeout"]
+[connection signal="area_entered" from="interactable" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="interactable" to="." method="_on_interact_area_area_exited"]

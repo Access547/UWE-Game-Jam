@@ -1,11 +1,14 @@
-extends TextureRect
+extends Control
 
 @export var dialog = []
 @export var textSpeed: float = 0.05
 
-@onready var text = $Text
-@onready var timer = $Timer
-@onready var textAnim = $AnimationPlayer
+
+@onready var text = $"Text box/Text"
+@onready var timer = $"Text box/Timer"
+@onready var textAnim = $"Text box/AnimationPlayer"
+
+
 
 var currentText = 0
 var canProgress = false
@@ -31,10 +34,15 @@ func UpdateText():
 		
 	else:
 		textAnim.play("Fade out")
-		if textAnim.current_animation == "Fade out" and text.self_modulate.a == 0:
-			NumberManager.canMove = true
-			queue_free()
+
+
 
 
 func _on_timer_timeout():
 	canProgress = true
+
+
+func EndDialog():
+		NumberManager.canMove = true
+		print("done!")
+		queue_free()

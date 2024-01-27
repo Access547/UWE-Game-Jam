@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://curbhia1yxrys"]
+
+[ext_resource type="Script" path="res://Kickable.gd" id="1_niqf2"]
+[ext_resource type="Texture2D" uid="uid://b73wm6sadn0to" path="res://Assets/Art/Characters/1.png" id="2_u08yi"]
+[ext_resource type="AudioStream" uid="uid://w32gt812bjvi" path="res://Assets/Sounds/SFX/Scream 1.wav" id="3_c3ajo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfe5x"]
+size = Vector2(13, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j6ie"]
+size = Vector2(9, 26)
+
+[node name="NPC" type="Area2D"]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource("1_niqf2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u08yi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_kfe5x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4j6ie")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c3ajo")
+volume_db = -10.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

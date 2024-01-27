@@ -1,18 +1,22 @@
 extends Area2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var audio = $AudioStreamPlayer2D
+@onready var sBody = $StaticBody2D
+@onready var colShape = $CollisionShape2D
+@onready var collision_shape_2d = $StaticBody2D/CollisionShape2D
 
 
 func _on_area_entered(area):
 	if area.get_collision_layer() == 8:
-		#do animation maybe? it may be funny to play the same explosion animation everytime we kick something
-		queue_free()
+		get_tree().get_first_node_in_group("Camera").ApplyShake()
+		audio.pitch_scale = randf_range(0.9, 1.2)
+		audio.play()
+		visible = false
+		set_collision_mask_value(4, false)
+		sBody.set_collision_layer_value(6, false)
 		
+
+
+func _on_audio_stream_player_2d_finished():
+	queue_free()

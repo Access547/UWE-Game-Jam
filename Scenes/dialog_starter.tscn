@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://miegpf022viy"]
+
+[ext_resource type="Script" path="res://Scripts/dialog_starter.gd" id="1_mhpl0"]
+[ext_resource type="PackedScene" uid="uid://b3jmvitkgdr6a" path="res://Scenes/dialog.tscn" id="2_imlx8"]
+
+[node name="Dialog Starter" type="Area2D"]
+script = ExtResource("1_mhpl0")
+dialog = ExtResource("2_imlx8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

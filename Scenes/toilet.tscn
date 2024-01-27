@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bukq4uqbqstc2"]
 
-[ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_jomj0"]
 [ext_resource type="Script" path="res://Scenes/toilet.gd" id="1_wm1bh"]
+[ext_resource type="Texture2D" uid="uid://bqxoy5wktsq0f" path="res://Assets/Art/Toilet.png" id="2_ec5uh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6hgl"]
-size = Vector2(8, 8)
+size = Vector2(2, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye7bk"]
-size = Vector2(12, 12)
+size = Vector2(4, 4)
 
 [node name="Toilet" type="StaticBody2D"]
 script = ExtResource("1_wm1bh")
@@ -15,7 +15,7 @@ script = ExtResource("1_wm1bh")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.90735e-06)
 scale = Vector2(0.0546875, 0.0585938)
-texture = ExtResource("1_jomj0")
+texture = ExtResource("2_ec5uh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e6hgl")

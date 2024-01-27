@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgajdbpvlnau5"
+path="res://.godot/imported/Smash wood.wav-5c19c9a706f2582c1eed8683c3f5d26c.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/Smash wood.wav"
+dest_files=["res://.godot/imported/Smash wood.wav-5c19c9a706f2582c1eed8683c3f5d26c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85ew66tasnuu"]
+
+[ext_resource type="Script" path="res://teleportcar.gd" id="1_qo8db"]
+
+[node name="CarTele" type="Area2D"]
+collision_layer = 64
+collision_mask = 192
+script = ExtResource("1_qo8db")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

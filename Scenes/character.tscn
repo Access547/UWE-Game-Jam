@@ -28,8 +28,7 @@ texture = ExtResource("2_bl4ww")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_l3ptw")
 
-[node name="kickbox" type="Area2D" parent="."] groups=["Kick"]]
-visible = false
+[node name="kickbox" type="Area2D" parent="." groups=["Kick"]]
 position = Vector2(127, -13)
 collision_layer = 8
 collision_mask = 2

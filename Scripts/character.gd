@@ -13,14 +13,15 @@ var youwin
 
 
 func _physics_process(delta):
-	if toilet.toilettimeHere == false:
-		player_movement(delta)
-	look_at_mouse()
-	
-	if Input.is_action_just_pressed("kick"):
-		kick()
-	if toilet.toilettimeHere == true:
-		youWin()
+	if NumberManager.canMove:
+		if toilet.toilettimeHere == false:
+			player_movement(delta)
+		look_at_mouse()
+		
+		if Input.is_action_just_pressed("kick"):
+			kick()
+		if toilet.toilettimeHere == true:
+			youWin()
 	
 	
 func get_input():

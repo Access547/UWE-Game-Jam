@@ -12,6 +12,7 @@ var canProgress = false
 
 func _ready():
 	text.text = dialog[currentText]
+	NumberManager.canMove = false
 
 
 func _process(delta):
@@ -31,6 +32,7 @@ func UpdateText():
 	else:
 		textAnim.play("Fade out")
 		if textAnim.current_animation == "Fade out" and text.self_modulate.a == 0:
+			NumberManager.canMove = true
 			queue_free()
 
 

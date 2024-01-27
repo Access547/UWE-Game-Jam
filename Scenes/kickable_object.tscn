@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgsw2c723ych"]
+
+[ext_resource type="Script" path="res://Kickable.gd" id="1_1qleh"]
+[ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_lr5mi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqkya"]
+size = Vector2(127, 123)
+
+[node name="kickableObject" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_1qleh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_eqkya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lr5mi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

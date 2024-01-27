@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm3lni2g2biiv"]
+
+[ext_resource type="Script" path="res://Scripts/goop.gd" id="1_kufsv"]
+
+[node name="Goop" type="Area2D" groups=["goop"]]
+collision_layer = 16
+script = ExtResource("1_kufsv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

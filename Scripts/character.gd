@@ -4,6 +4,8 @@ var input = Vector2.ZERO
 @export var max_speed = 400
 @export var accel = 1500
 @export var friction = 600
+@export var goopspeed = 100
+var currentMax
 var mouse_pos
 
 
@@ -50,3 +52,15 @@ func kick():
 
 func _on_kick_timer_timeout():
 	$kickbox/CollisionShape2D.disabled = true
+
+
+func _on_interact_area_area_entered(area):
+	if area.get_collision_layer() == 16:
+		currentMax = max_speed
+		max_speed = goopspeed
+
+
+func _on_interact_area_area_exited(area):
+	if area.get_collision_layer() == 16:
+		max_speed = currentMax
+	

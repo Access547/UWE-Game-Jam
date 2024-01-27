@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bx1tgn6d4myxh"]
+[gd_scene load_steps=10 format=3 uid="uid://bx1tgn6d4myxh"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_4e5ly"]
-[ext_resource type="Texture2D" uid="uid://cyd5qdxodkisy" path="res://Assets/Art/Door.png" id="1_atv8f"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_27410"]
+[ext_resource type="Texture2D" uid="uid://cyd5qdxodkisy" path="res://Assets/Art/Door.png" id="2_kx8rg"]
+[ext_resource type="AudioStream" uid="uid://dighhog8pab6i" path="res://Assets/Sounds/SFX/Kick Door Open.wav" id="3_u223q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gjhf"]
 size = Vector2(3, 32.2487)
@@ -44,13 +45,19 @@ _data = {
 "Open right": SubResource("Animation_5rut6")
 }
 
-[node name="Door" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfejl"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmtmq"]
+size = Vector2(20, 32)
+
+[node name="DoorVertical" type="StaticBody2D"]
 collision_layer = 2
-script = ExtResource("1_4e5ly")
+script = ExtResource("1_27410")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, 16)
-texture = ExtResource("1_atv8f")
+texture = ExtResource("2_kx8rg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 15.9282)
@@ -61,15 +68,26 @@ libraries = {
 "": SubResource("AnimationLibrary_gpxw6")
 }
 
-[node name="Left" type="Area2D" parent="."]
+[node name="Left" type="Area2D" parent="." groups=["Left"]]
 collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(13, 16)
+shape = SubResource("RectangleShape2D_cfejl")
+debug_color = Color(0.870588, 0, 0.85098, 0.419608)
 
-[node name="Right" type="Area2D" parent="."]
+[node name="Right" type="Area2D" parent="." groups=["Right"]]
 collision_layer = 2
 collision_mask = 8
 
-[connection signal="area_entered" from="Left" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Right" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(-10, 16)
+shape = SubResource("RectangleShape2D_rmtmq")
+debug_color = Color(0.854902, 0, 0.894118, 0.419608)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u223q")
+
+[connection signal="area_entered" from="Left" to="." method="_on_left_area_entered"]
+[connection signal="area_entered" from="Right" to="." method="_on_right_area_entered"]

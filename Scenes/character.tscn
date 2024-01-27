@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=9 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
@@ -39,7 +40,10 @@ scale = Vector2(0.679241, 6.09425)
 shape = SubResource("RectangleShape2D_2v3q5")
 disabled = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+script = ExtResource("3_sytrh")
+randomStrength = 3.0
+shakeFade = 20.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

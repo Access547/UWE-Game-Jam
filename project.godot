@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="UWE Jam"
-run/main_scene="res://Scenes/Base Level.tscn"
+run/main_scene="res://Scenes/House level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
 
 NumberManager="*res://Scripts/Number_Manager.gd"
+Functions="*res://Scripts/functions.gd"
 
 [display]
 

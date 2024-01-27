@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dighhog8pab6i"
+path="res://.godot/imported/Kick Door Open.wav-4d77e51dd7fc6dae1174624556661efb.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/Kick Door Open.wav"
+dest_files=["res://.godot/imported/Kick Door Open.wav-4d77e51dd7fc6dae1174624556661efb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

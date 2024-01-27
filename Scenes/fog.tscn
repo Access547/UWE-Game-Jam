@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmifu1i8qxlkn"]
+
+[ext_resource type="Script" path="res://Scenes/fog.gd" id="1_12okk"]
+
+[node name="Fog" type="Node2D"]
+script = ExtResource("1_12okk")

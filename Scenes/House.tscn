@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbxybr1edcxat"]
+[gd_scene load_steps=12 format=3 uid="uid://dbxybr1edcxat"]
 
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="1_ldygy"]
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_s13da"]
 [ext_resource type="PackedScene" uid="uid://cb77rkvr3w6sm" path="res://Scenes/teleporter.tscn" id="3_e3vp4"]
 [ext_resource type="PackedScene" uid="uid://bx1tgn6d4myxh" path="res://Scenes/door.tscn" id="4_e5ogf"]
-[ext_resource type="PackedScene" uid="uid://dm3lni2g2biiv" path="res://Scenes/goop.tscn" id="5_74jkv"]
+[ext_resource type="PackedScene" path="res://Scenes/goop.tscn" id="5_74jkv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4x5l"]
 texture = ExtResource("2_s13da")
@@ -272,9 +272,6 @@ sources/0 = SubResource("TileSetAtlasSource_u4x5l")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oam8"]
 size = Vector2(20, 63)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdi8a"]
-size = Vector2(13, 32)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vqju"]
 size = Vector2(152, 31)
 
@@ -310,11 +307,6 @@ position = Vector2(264, 130)
 scale = Vector2(-1, -1)
 isLeft = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" index="0"]
-position = Vector2(9.5, 16)
-shape = SubResource("RectangleShape2D_hdi8a")
-debug_color = Color(0.819608, 0, 0.968627, 0.419608)
-
 [node name="Goop" parent="." instance=ExtResource("5_74jkv")]
 position = Vector2(108, 5)
 
@@ -335,5 +327,3 @@ teleLocation = Vector2(485, -17)
 position = Vector2(43, 0)
 rotation = 1.59049
 shape = SubResource("RectangleShape2D_stdnd")
-
-[editable path="Door"]

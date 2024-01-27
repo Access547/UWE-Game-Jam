@@ -61,8 +61,15 @@ libraries = {
 "": SubResource("AnimationLibrary_gpxw6")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Left" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 8
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+
+[node name="Right" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+
+[connection signal="area_entered" from="Left" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Right" to="." method="_on_area_2d_area_entered"]

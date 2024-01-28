@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtlrx6fe1622i"]
+[gd_scene load_steps=8 format=3 uid="uid://dtlrx6fe1622i"]
 
 [ext_resource type="PackedScene" uid="uid://c5c683vli4j48" path="res://Scenes/level_button.tscn" id="1_tgv5o"]
 [ext_resource type="Script" path="res://Scenes/levelSelect.gd" id="1_tjo5k"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hxxjhgktfacw" path="res://Assets/Art/Icons/Office icon.png" id="4_2qk81"]
 [ext_resource type="Texture2D" uid="uid://tixlt8nou7ws" path="res://Assets/Art/Icons/Streets icon.png" id="5_l8pyf"]
 [ext_resource type="Texture2D" uid="uid://3x3fcrrmradw" path="res://Assets/Art/Icons/Ikea icon.png" id="6_hyrv1"]
+[ext_resource type="PackedScene" uid="uid://bfnl103671nqx" path="res://Background.tscn" id="7_h1gyi"]
 
 [node name="Level Select" type="Node2D"]
 script = ExtResource("1_tjo5k")
@@ -72,5 +73,8 @@ offset_right = 32.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 10
 text = "Back"
+
+[node name="Polygon2D" parent="." instance=ExtResource("7_h1gyi")]
+polygon = PackedVector2Array(-8.90568, -22.0383, -8.81809, 190.964, 337.192, 189.446, 337.1, -22.5562)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

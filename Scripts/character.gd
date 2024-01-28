@@ -25,6 +25,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("kick"):
 			kick()
+			$Sprite2D.play("kick")
 		if toilet.toilettimeHere == true:
 			toilet.toilettimeHere = false
 			youWin()
@@ -38,14 +39,14 @@ func get_input():
 func player_movement(delta):
 	input = get_input()
 	if input == Vector2.ZERO:
-		if $Sprite2D.animation != "idle":
+		if $Sprite2D.animation != "idle" and $Sprite2D.animation != "kick":
 			$Sprite2D.play("idle")
 		if velocity.length() > (friction * delta):
 			velocity -= velocity.normalized() * (friction * delta)
 		else:
 			velocity = Vector2.ZERO
 	else:
-		if $Sprite2D.animation != "walk":
+		if $Sprite2D.animation != "walk" and $Sprite2D.animation != "kick":
 			$Sprite2D.play("walk")
 		velocity += (input * accel * delta)
 		velocity = velocity.limit_length(max_speed)
@@ -129,5 +130,9 @@ func ChangeCanMove():
 
 func _on_next_level_pressed():
 	get_tree().change_scene_to_packed(level2)
-	ChangeCanMove()
 		
+
+
+func _on_sprite_2d_animation_finished():
+	if $Sprite2D.animation == "kick":
+		$Sprite2D.animation = "idle"

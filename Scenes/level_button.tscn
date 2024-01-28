@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5c683vli4j48"]
+[gd_scene load_steps=4 format=3 uid="uid://c5c683vli4j48"]
 
 [ext_resource type="Texture2D" uid="uid://baqmgo2j2scnt" path="res://Assets/Art/Icons/House icon.png" id="1_7vfx5"]
 [ext_resource type="Script" path="res://Scripts/level_button.gd" id="2_enbsw"]
+[ext_resource type="AudioStream" uid="uid://ca1y7dboqpsfl" path="res://click.wav" id="3_44fre"]
 
 [node name="Level Button" type="TextureButton"]
 anchors_preset = 8
@@ -41,6 +42,9 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "House"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_44fre")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

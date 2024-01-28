@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfnl103671nqx"]
+
+[ext_resource type="PackedScene" uid="uid://c7j6tn4sbrfic" path="res://particle/poo_part.tscn" id="1_oa5e7"]
+
+[node name="Polygon2D" type="Polygon2D"]
+rotation = -0.00428358
+color = Color(0.513726, 0.25098, 0, 1)
+polygon = PackedVector2Array(-8.99135, -2.03853, -8.81809, 190.964, 337.192, 189.446, 337.1, -22.5562)
+
+[node name="Poo part" parent="." instance=ExtResource("1_oa5e7")]
+position = Vector2(35.1601, 196.152)
+rotation = -1.65072
+color = Color(0.443137, 0.215686, 0, 1)
+
+[node name="Poo part" parent="Poo part" instance=ExtResource("1_oa5e7")]
+position = Vector2(-9.32277, 98.5652)
+color = Color(0.443137, 0.215686, 0, 1)
+
+[node name="Poo part" parent="Poo part/Poo part" instance=ExtResource("1_oa5e7")]
+position = Vector2(-143.935, -24.4714)
+color = Color(0.443137, 0.215686, 0, 1)

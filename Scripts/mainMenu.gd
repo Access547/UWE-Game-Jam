@@ -21,3 +21,11 @@ func _on_how_to_play_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_level_select_mouse_entered():
+	$CanvasLayer/GridContainer/AudioStreamPlayer.play()
+
+
+func _on_exit_mouse_entered():
+	$CanvasLayer/GridContainer/AudioStreamPlayer.play()

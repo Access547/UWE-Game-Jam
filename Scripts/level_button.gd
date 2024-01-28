@@ -16,7 +16,7 @@ func _on_pressed():
 
 func _on_mouse_entered():
 	label.visible = !label.visible
-
+	$AudioStreamPlayer.play()
 
 func _on_mouse_exited():
 	label.visible = !label.visible

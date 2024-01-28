@@ -690,9 +690,6 @@ time = 60.0
 toilet = NodePath("../Toilet")
 level = "res://Scenes/House level.tscn"
 
-[node name="youWin" parent="Character/HUD" index="2"]
-visible = true
-
 [node name="RichTextLabel" parent="Character/HUD/youWin" index="0"]
 visible_characters = -1
 visible_ratio = 1.0

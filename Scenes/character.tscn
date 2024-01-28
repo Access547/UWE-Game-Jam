@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dutdtbbi0qkll" path="res://Assets/Art/Poop stain.png" id="2_pcg3d"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
-[ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
+[ext_resource type="PackedScene" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
 [ext_resource type="AudioStream" uid="uid://b7nyo40juc5id" path="res://Assets/Sounds/SFX/Impact noise.wav" id="6_spm2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]

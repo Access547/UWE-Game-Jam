@@ -74,7 +74,10 @@ func _on_interact_area_area_entered(area):
 	if area.get_collision_layer() == 16:
 		currentMax = max_speed
 		max_speed = goopspeed
-
+	elif area.get_collision_layer() == 64:
+		if !NumberManager.brownedOut:
+			youLose()
+		
 
 func _on_interact_area_area_exited(area):
 	if area.get_collision_layer() == 16:
@@ -98,7 +101,7 @@ func youLose():
 	
 	if get_node_or_null("HUD/Dialog"):
 		$HUD/Dialog.EndDialog()
-	NumberManager.canMove = false
+	ChangeCanMove()
 	NumberManager.brownedOut = true
 
 func _on_ttp_timeout():
@@ -112,7 +115,7 @@ func StartTTP():
 
 func _on_replay_pressed():
 	get_tree().change_scene_to_file(level)
-	NumberManager.canMove = true
+	
 	NumberManager.brownedOut = false
 
 
@@ -126,5 +129,5 @@ func ChangeCanMove():
 
 func _on_next_level_pressed():
 	get_tree().change_scene_to_packed(level2)
-	NumberManager.canMove = true
+	ChangeCanMove()
 		

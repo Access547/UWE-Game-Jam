@@ -2,5 +2,5 @@ extends Node
 
 
 var poopTimer = 0
-var canMove = true
+var canMove = false
 var brownedOut = false

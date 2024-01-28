@@ -92,7 +92,7 @@ func youLose():
 	music.play(0)
 	$HUD/youLose.visible = true
 	
-	$Sprite2D.set_texture(preload("res://Assets/Art/Player fallen.png"))
+	$Sprite2D.play("browned")
 	$Poop.visible = true
 	$HUD/Control/ProgressBar.visible = false
 	
@@ -111,6 +111,7 @@ func StartTTP():
 
 func _on_replay_pressed():
 	get_tree().change_scene_to_file(level)
+	NumberManager.canMove = true
 
 
 func _on_menu_pressed():

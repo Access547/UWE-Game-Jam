@@ -692,9 +692,6 @@ toilet = NodePath("../Toilet")
 level = "res://Scenes/House level.tscn"
 level2 = ExtResource("5_crr2t")
 
-[node name="youLose" parent="Character/HUD" index="3"]
-visible = false
-
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
 position = Vector2(485, -17)
 player = NodePath("../Character")
@@ -859,6 +856,9 @@ position = Vector2(2415, 187)
 [node name="DoorHorizontal8" parent="." instance=ExtResource("8_5hv5v")]
 position = Vector2(2495, 168)
 
+[node name="DoorVertical" parent="." instance=ExtResource("4_e5ogf")]
+position = Vector2(2262, -14)
+
 [node name="Fog" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
 visible = false
 doors = [NodePath("../DoorHorizontal2")]
@@ -922,9 +922,6 @@ doors = [NodePath("../DoorHorizontal")]
 [node name="Polygon2D" type="Polygon2D" parent="Fog8"]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(2015, 121, 2047, 121, 2047, 114, 2111, 114, 2111, -30, 1999, -30, 1999, 114, 2015, 114)
-
-[node name="DoorVertical" parent="." instance=ExtResource("4_e5ogf")]
-position = Vector2(2262, -14)
 
 [node name="Fog9" parent="." node_paths=PackedStringArray("doors") instance=ExtResource("7_se626")]
 visible = false

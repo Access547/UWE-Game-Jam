@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://buc3rwpypr621"]
+[gd_scene load_steps=26 format=3 uid="uid://buc3rwpypr621"]
 
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_7c13q"]
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="2_5gxbo"]
 [ext_resource type="Texture2D" uid="uid://cnxr5gytbnmy8" path="res://Assets/Art/Tileset.png" id="2_gjtne"]
 [ext_resource type="PackedScene" uid="uid://bukq4uqbqstc2" path="res://Scenes/toilet.tscn" id="3_4g2tf"]
 [ext_resource type="PackedScene" uid="uid://uea3erwvvvyu" path="res://Scenes/door horizontal.tscn" id="3_m2sgf"]
+[ext_resource type="PackedScene" uid="uid://cpsfvi0m5jbuu" path="res://Scenes/street.tscn" id="4_d7cy8"]
 [ext_resource type="PackedScene" uid="uid://cb77rkvr3w6sm" path="res://Scenes/teleporter.tscn" id="4_y5ha1"]
 [ext_resource type="PackedScene" uid="uid://bx1tgn6d4myxh" path="res://Scenes/door vertical.tscn" id="6_51nml"]
 [ext_resource type="PackedScene" uid="uid://cmifu1i8qxlkn" path="res://Scenes/fog.tscn" id="7_p6qcf"]
@@ -777,6 +778,7 @@ layer_1/tile_data = PackedInt32Array(720894, 4259841, 1, 655370, 4259841, 1, -13
 position = Vector2(9, 17)
 max_speed = 200
 toilet = NodePath("../Toilet")
+level2 = ExtResource("4_d7cy8")
 
 [node name="youWin" parent="Character/HUD" index="2"]
 visible = true

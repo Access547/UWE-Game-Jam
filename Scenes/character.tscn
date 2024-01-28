@@ -267,7 +267,6 @@ libraries = {
 }
 
 [node name="youLose" type="Panel" parent="HUD"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -360,6 +359,7 @@ shape = SubResource("RectangleShape2D_5duls")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -20.0
 
+[connection signal="pressed" from="HUD/youWin/Next Level" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="HUD/youLose/Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="HUD/youLose/Menu" to="." method="_on_menu_pressed"]
 [connection signal="timeout" from="ttp" to="." method="_on_ttp_timeout"]

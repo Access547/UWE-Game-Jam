@@ -11,6 +11,7 @@ var youwin
 @export var time: float
 @export var toilet:StaticBody2D
 @export var level: String
+@export var level2:PackedScene
 
 @onready var ttp = $ttp
 @onready var music = $AudioStreamPlayer2D
@@ -109,8 +110,13 @@ func _on_replay_pressed():
 
 
 func _on_menu_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
+	get_tree().change_scene_to_file("res://Scenes/mainMenu.tscn")
 
 
 func ChangeCanMove():
 	NumberManager.canMove = !NumberManager.canMove
+
+
+func _on_next_level_pressed():
+	get_tree().change_scene_to_packed(level2)
+		

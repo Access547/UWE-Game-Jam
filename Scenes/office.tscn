@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://buc3rwpypr621"]
+[gd_scene load_steps=19 format=3 uid="uid://buc3rwpypr621"]
 
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_7c13q"]
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="2_5gxbo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bx1tgn6d4myxh" path="res://Scenes/door vertical.tscn" id="6_51nml"]
 [ext_resource type="PackedScene" uid="uid://cmifu1i8qxlkn" path="res://Scenes/fog.tscn" id="7_p6qcf"]
 [ext_resource type="PackedScene" uid="uid://miegpf022viy" path="res://Scenes/dialog_starter.tscn" id="9_fytiy"]
+[ext_resource type="PackedScene" uid="uid://curbhia1yxrys" path="res://Scenes/NPC.tscn" id="10_rsxa5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhp2u"]
 texture = ExtResource("1_7c13q")
@@ -759,6 +760,10 @@ position = Vector2(9, 17)
 max_speed = 200
 toilet = NodePath("../Toilet")
 
+[node name="NPC" parent="." instance=ExtResource("10_rsxa5")]
+position = Vector2(449, -52)
+rotation = 2.89206
+
 [node name="Toilet" parent="." instance=ExtResource("3_4g2tf")]
 position = Vector2(119, -32)
 
@@ -1281,7 +1286,7 @@ polygon = PackedVector2Array(560, 1056, 560, 992, 800, 992, 800, 1055, 688, 1056
 
 [node name="Dialog Starter" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String]([""])
+text = Array[String](["HEY! GET OUTTA HERE!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter"]
 position = Vector2(375, -48)

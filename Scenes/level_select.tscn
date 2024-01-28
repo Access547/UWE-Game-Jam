@@ -58,6 +58,7 @@ levelName = "Streets"
 
 [node name="Level Button4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2
+level = "res://Scenes/ikea.tscn"
 texture = ExtResource("6_hyrv1")
 levelName = "Ikea"
 

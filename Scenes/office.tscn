@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://buc3rwpypr621"]
+[gd_scene load_steps=27 format=3 uid="uid://buc3rwpypr621"]
 
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_7c13q"]
+[ext_resource type="Texture2D" uid="uid://b7rxqaktecqct" path="res://Assets/Art/background.png" id="1_vw5ol"]
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="2_5gxbo"]
 [ext_resource type="Texture2D" uid="uid://cnxr5gytbnmy8" path="res://Assets/Art/Tileset.png" id="2_gjtne"]
 [ext_resource type="PackedScene" uid="uid://bukq4uqbqstc2" path="res://Scenes/toilet.tscn" id="3_4g2tf"]
@@ -767,6 +768,11 @@ size = Vector2(272.5, 20)
 
 [node name="Office" type="Node2D"]
 
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1336, 144)
+scale = Vector2(20, 20)
+texture = ExtResource("1_vw5ol")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_545cq")
 format = 2
@@ -782,6 +788,7 @@ scale = Vector2(12, 12)
 [node name="Character" parent="." node_paths=PackedStringArray("toilet") instance=ExtResource("2_5gxbo")]
 position = Vector2(9, 17)
 max_speed = 200
+time = 20.0
 toilet = NodePath("../Toilet")
 level = "res://Scenes/office.tscn"
 level2 = ExtResource("4_d7cy8")

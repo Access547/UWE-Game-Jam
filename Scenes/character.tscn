@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=27 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://dutdtbbi0qkll" path="res://Assets/Art/Poop stain.png" id="2_pcg3d"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8i5mi1qo8g0p" path="res://Assets/Art/dwa.png" id="5_jnl1a"]
 [ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
 [ext_resource type="AudioStream" uid="uid://b7nyo40juc5id" path="res://Assets/Sounds/SFX/Impact noise.wav" id="6_spm2o"]
+[ext_resource type="AudioStream" uid="uid://dpgmkke8scc43" path="res://Assets/Sounds/Music/poop_music_pitch_up_final.wav" id="10_j63qh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlroq"]
 atlas = ExtResource("3_2qioo")
@@ -142,6 +143,18 @@ tracks/3/keys = {
 "method": &"ChangeCanMove"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_642qr"]
 _data = {
@@ -216,6 +229,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gv78i"]
@@ -399,7 +424,6 @@ stream = ExtResource("6_spm2o")
 volume_db = -15.0
 
 [node name="Find the toilet" type="Panel" parent="HUD"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -434,6 +458,10 @@ shape = SubResource("RectangleShape2D_5duls")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -20.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_j63qh")
+volume_db = -15.0
+
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="pressed" from="HUD/youWin/Next Level" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="HUD/youLose/Replay" to="." method="_on_replay_pressed"]
@@ -442,3 +470,4 @@ volume_db = -20.0
 [connection signal="timeout" from="Kick Timer" to="." method="_on_kick_timer_timeout"]
 [connection signal="area_entered" from="interactable" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="interactable" to="." method="_on_interact_area_area_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

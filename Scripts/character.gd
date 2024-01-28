@@ -95,7 +95,7 @@ func youLose():
 	music.set_stream(load("res://Assets/Sounds/Music/poop_game_endscreen.wav"))
 	music.play(0)
 	$HUD/youLose.visible = true
-	
+	$AudioStreamPlayer.playing = false
 	$Sprite2D.play("browned")
 	$Poop.visible = true
 	$HUD/Control/ProgressBar.visible = false
@@ -116,7 +116,6 @@ func StartTTP():
 
 func _on_replay_pressed():
 	get_tree().change_scene_to_file(level)
-	
 	NumberManager.brownedOut = false
 
 
@@ -126,6 +125,7 @@ func _on_menu_pressed():
 
 func ChangeCanMove():
 	NumberManager.canMove = !NumberManager.canMove
+	print("dw")
 
 
 func _on_next_level_pressed():
@@ -136,3 +136,10 @@ func _on_next_level_pressed():
 func _on_sprite_2d_animation_finished():
 	if $Sprite2D.animation == "kick":
 		$Sprite2D.animation = "idle"
+
+
+
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()

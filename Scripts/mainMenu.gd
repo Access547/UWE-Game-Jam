@@ -29,3 +29,7 @@ func _on_level_select_mouse_entered():
 
 func _on_exit_mouse_entered():
 	$CanvasLayer/GridContainer/AudioStreamPlayer.play()
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()

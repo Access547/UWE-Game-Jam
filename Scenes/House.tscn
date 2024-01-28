@@ -740,7 +740,7 @@ animations = [{
 [node name="House" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(1284, 98)
+position = Vector2(1336, 144)
 scale = Vector2(20, 20)
 texture = ExtResource("1_sb152")
 
@@ -760,12 +760,11 @@ scale = Vector2(1.25781, 1)
 texture = ExtResource("13_4qmq7")
 
 [node name="Character" parent="." node_paths=PackedStringArray("toilet") instance=ExtResource("1_ldygy")]
-position = Vector2(141, 113)
-collision_mask = 50
+position = Vector2(144, 97)
 max_speed = 200
-time = 60.0
+time = 12.0
 toilet = NodePath("../Toilet")
-level = "res://Scenes/House level.tscn"
+level = "res://Scenes/House.tscn"
 level2 = ExtResource("5_crr2t")
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
@@ -856,6 +855,7 @@ scale = Vector2(12, 12)
 
 [node name="Dialog Starter" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("11_sn6u0")]
 canvas = NodePath("../Character/HUD")
+text = Array[String](["Hi son!", "Wow you look busy!!", "I won't take up any more of your precious time!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter"]
 position = Vector2(79, -50)

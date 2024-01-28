@@ -786,12 +786,6 @@ toilet = NodePath("../Toilet")
 level = "res://Scenes/office.tscn"
 level2 = ExtResource("4_d7cy8")
 
-[node name="RichTextLabel" parent="Character/HUD/youWin" index="0"]
-visible = false
-
-[node name="Next Level" parent="Character/HUD/youWin" index="1"]
-visible = false
-
 [node name="NPC" parent="." instance=ExtResource("10_rsxa5")]
 position = Vector2(449, -52)
 rotation = 2.89206

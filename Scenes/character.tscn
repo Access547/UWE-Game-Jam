@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ma67s62ucg78" path="res://Assets/Art/Characters/Player sprite-sheet.png" id="3_mlx33"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
-[ext_resource type="PackedScene" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
+[ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
 [ext_resource type="AudioStream" uid="uid://b7nyo40juc5id" path="res://Assets/Sounds/SFX/Impact noise.wav" id="6_spm2o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlroq"]

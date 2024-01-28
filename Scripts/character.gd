@@ -99,6 +99,7 @@ func youLose():
 	if get_node_or_null("HUD/Dialog"):
 		$HUD/Dialog.EndDialog()
 	NumberManager.canMove = false
+	NumberManager.brownedOut = true
 
 func _on_ttp_timeout():
 	youLose()
@@ -112,6 +113,7 @@ func StartTTP():
 func _on_replay_pressed():
 	get_tree().change_scene_to_file(level)
 	NumberManager.canMove = true
+	NumberManager.brownedOut = false
 
 
 func _on_menu_pressed():

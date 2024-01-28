@@ -1,6 +1,79 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnx7doylauide"]
+[gd_scene load_steps=5 format=3 uid="uid://cnx7doylauide"]
 
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_abydo"]
+
+[sub_resource type="Animation" id="Animation_qxiuy"]
+resource_name = "Default"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GridContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(70, 44), Vector2(99, 44)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/GridContainer/LevelSelect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/GridContainer/options:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/GridContainer/exit:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nvvco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/GridContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(70, 44)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27rpn"]
+_data = {
+"Default": SubResource("Animation_qxiuy"),
+"RESET": SubResource("Animation_nvvco")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_abydo")
@@ -8,17 +81,16 @@ script = ExtResource("1_abydo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GridContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -46.0
-offset_right = 61.0
-offset_bottom = 90.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -136.0
+offset_right = 31.9998
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
@@ -26,10 +98,6 @@ alignment = 1
 [node name="LevelSelect" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
 text = "Level Select"
-
-[node name="howToPlay" type="Button" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
-text = "How to Play"
 
 [node name="options" type="Button" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
@@ -39,6 +107,11 @@ text = "Options"
 layout_mode = 2
 text = "Exit"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_27rpn")
+}
+autoplay = "Default"
+
 [connection signal="pressed" from="CanvasLayer/GridContainer/LevelSelect" to="." method="_on_level_select_pressed"]
-[connection signal="pressed" from="CanvasLayer/GridContainer/howToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/GridContainer/exit" to="." method="_on_exit_pressed"]

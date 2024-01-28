@@ -14,7 +14,8 @@ func _ready():
 func _process(_delta):
 	if NumberManager.brownedOut == true:
 		if tRect:
-			tRect.queue_free()
+			#tRect.queue_free()
+			pass
 
 
 func _on_body_entered(body):

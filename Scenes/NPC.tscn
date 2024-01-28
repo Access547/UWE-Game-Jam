@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://w32gt812bjvi" path="res://Assets/Sounds/SFX/Scream 1.wav" id="3_c3ajo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfe5x"]
-size = Vector2(28, 19)
+size = Vector2(28, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j6ie"]
 size = Vector2(22, 26)
@@ -21,7 +21,7 @@ sceene = ExtResource("2_80ove")
 texture = ExtResource("2_u08yi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_kfe5x")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

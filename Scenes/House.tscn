@@ -692,6 +692,9 @@ toilet = NodePath("../Toilet")
 level = "res://Scenes/House level.tscn"
 level2 = ExtResource("5_crr2t")
 
+[node name="youLose" parent="Character/HUD" index="3"]
+visible = false
+
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
 position = Vector2(485, -17)
 player = NodePath("../Character")

@@ -1,6 +1,6 @@
 extends CPUParticles2D
 
-var scene = load("res")
+
 
 
 # Called when the node enters the scene tree for the first time.

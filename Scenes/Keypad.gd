@@ -3,6 +3,7 @@ extends TextureRect
 
 var currentCode = ""
 @onready var label = $Label
+@onready var door_keypad = $"../../../Door Keypad"
 
 func _ready():
 	label.set_text(currentCode)
@@ -53,4 +54,9 @@ func PressNum(num):
 
 func _on_button_11_pressed():
 	if currentCode == get_parent().get_parent().get_parent().code:
-		print("yay!")
+		door_keypad.OpenDoor("Open right")
+
+
+func _on_button_12_pressed():
+	currentCode = ""
+	label.set_text(currentCode)

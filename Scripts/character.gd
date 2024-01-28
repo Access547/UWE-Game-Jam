@@ -25,6 +25,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("kick"):
 			kick()
 		if toilet.toilettimeHere == true:
+			toilet.toilettimeHere = false
 			youWin()
 	
 	
@@ -76,10 +77,7 @@ func _on_interact_area_area_exited(area):
 	
 	
 func youWin():
-	$HUD/youWin.visible = true
-	$"HUD/Next Level".visible = true
-	
-	
+	$HUD/youWin/AnimationPlayer.play("Default")
 	ttp.stop()
 	$HUD/Control/ProgressBar.visible = false
 

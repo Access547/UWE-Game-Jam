@@ -157,7 +157,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_8f6u2")
-dialog = ["dwa", "dwa", "dwa"]
 
 [node name="Text box" type="TextureRect" parent="." groups=["Text"]]
 layout_mode = 1

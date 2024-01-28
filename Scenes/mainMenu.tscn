@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxqfg3beyr36u"]
+
+[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_abydo"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_abydo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -46.0
+offset_right = 61.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="LevelSelect" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="howToPlay" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "How to Play"
+
+[node name="options" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="exit" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/GridContainer/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/howToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3103itrgr32"]
+
+[ext_resource type="Script" path="res://Scenes/howToPlay.gd" id="1_be64o"]
+
+[node name="HowToPlay" type="Node2D"]
+script = ExtResource("1_be64o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 139.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 10
+text = "Quick! 
+Make it to the toilet 
+before you brown yourself!"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 80.0
+offset_right = 177.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 10
+text = "Use left mouse to kick any obstacles 
+out of your path!
+"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = 117.0
+offset_right = 348.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 10
+text = "Keep a watch of the brown meter, if it becomes full you brown 
+yourself!
+"
+
+[node name="Label4" type="Label" parent="CanvasLayer"]
+offset_left = 185.0
+offset_top = 35.0
+offset_right = 439.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 10
+text = "Press Space to Brown when
+ you make it to the toilet!
+"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_top = 149.0
+offset_right = 45.0
+offset_bottom = 180.0
+text = "Back"
+
+[node name="Label5" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.5
+offset_right = 65.5
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "How to play"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

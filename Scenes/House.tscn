@@ -696,6 +696,9 @@ level2 = ExtResource("5_rxcjb")
 visible_characters = -1
 visible_ratio = 1.0
 
+[node name="youLose" parent="Character/HUD" index="3"]
+visible = false
+
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
 position = Vector2(485, -17)
 player = NodePath("../Character")

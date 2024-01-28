@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbxybr1edcxat"]
+[gd_scene load_steps=22 format=3 uid="uid://dbxybr1edcxat"]
 
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="1_ldygy"]
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="2_s13da"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bukq4uqbqstc2" path="res://Scenes/toilet.tscn" id="10_ip4op"]
 [ext_resource type="PackedScene" uid="uid://miegpf022viy" path="res://Scenes/dialog_starter.tscn" id="11_sn6u0"]
 [ext_resource type="PackedScene" uid="uid://curbhia1yxrys" path="res://Scenes/NPC.tscn" id="12_6xjg4"]
+[ext_resource type="Texture2D" uid="uid://b1jbl3lm4kuwb" path="res://Assets/Art/GOOP.png" id="13_4qmq7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4x5l"]
 texture = ExtResource("2_s13da")
@@ -676,13 +677,25 @@ layer_1/tile_data = PackedInt32Array(196630, 1114113, 1, 262166, 1114113, 2, 327
 layer_2/name = "Floor"
 layer_2/tile_data = PackedInt32Array()
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(182.5, -14)
+scale = Vector2(1.25781, 1)
+texture = ExtResource("13_4qmq7")
+
 [node name="Character" parent="." node_paths=PackedStringArray("toilet") instance=ExtResource("1_ldygy")]
 position = Vector2(141, 113)
 collision_mask = 50
 max_speed = 200
-time = 10.0
+time = 60.0
 toilet = NodePath("../Toilet")
 level = "res://Scenes/House level.tscn"
+
+[node name="youWin" parent="Character/HUD" index="2"]
+visible = true
+
+[node name="RichTextLabel" parent="Character/HUD/youWin" index="0"]
+visible_characters = -1
+visible_ratio = 1.0
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_e3vp4")]
 position = Vector2(485, -17)
@@ -770,13 +783,9 @@ position = Vector2(2454, 252)
 rotation = 3.14159
 scale = Vector2(12, 12)
 
-[node name="Toilet2" parent="." instance=ExtResource("10_ip4op")]
-position = Vector2(2181, -16)
-rotation = 4.71239
-scale = Vector2(12, 12)
-
 [node name="Dialog Starter" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("11_sn6u0")]
 canvas = NodePath("../Character/HUD")
+text = Array[String](["Hi Son!", "You look like you're in a rush!", "I won't waste any more of your precious time then!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter"]
 position = Vector2(79, -50)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://buc3rwpypr621"]
+[gd_scene load_steps=27 format=3 uid="uid://buc3rwpypr621"]
 
+[ext_resource type="Texture2D" uid="uid://b7rxqaktecqct" path="res://Assets/Art/background.png" id="1_5nxal"]
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="1_7c13q"]
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="2_5gxbo"]
 [ext_resource type="Texture2D" uid="uid://cnxr5gytbnmy8" path="res://Assets/Art/Tileset.png" id="2_gjtne"]
@@ -766,6 +767,10 @@ size = Vector2(33, 20)
 size = Vector2(272.5, 20)
 
 [node name="Office" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = ExtResource("1_5nxal")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_545cq")

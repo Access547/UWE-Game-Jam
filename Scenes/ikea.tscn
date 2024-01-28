@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbqtns1bbw28q"]
+[gd_scene load_steps=30 format=3 uid="uid://bbqtns1bbw28q"]
 
 [ext_resource type="PackedScene" uid="uid://ck777aksqa1dj" path="res://Scenes/character.tscn" id="1_2i77r"]
 [ext_resource type="Script" path="res://Scripts/ikea.gd" id="1_hh68q"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3oautrj3gopy" path="res://Assets/Art/Sticky Note.png" id="4_isvs1"]
 [ext_resource type="Script" path="res://Scenes/Keypad.gd" id="5_ws2qu"]
 [ext_resource type="AudioStream" uid="uid://x2l4dvioka8n" path="res://Assets/Sounds/SFX/turn page.wav" id="6_gmdbi"]
+[ext_resource type="PackedScene" uid="uid://cnx7doylauide" path="res://Scenes/mainMenu.tscn" id="6_n3l5e"]
 [ext_resource type="Texture2D" uid="uid://b3dy7l68wh0q7" path="res://Assets/Art/icon.svg" id="9_ayuq4"]
 [ext_resource type="Texture2D" uid="uid://cnxr5gytbnmy8" path="res://Assets/Art/Tileset.png" id="10_yvbxa"]
 [ext_resource type="PackedScene" uid="uid://bx1tgn6d4myxh" path="res://Scenes/door vertical.tscn" id="11_hb22w"]
@@ -1043,7 +1044,7 @@ _data = {
 [node name="Ikea" type="Node2D"]
 script = ExtResource("1_hh68q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 scale = Vector2(20, 20)
 texture = ExtResource("2_kjlao")
 
@@ -1059,13 +1060,31 @@ layer_2/tile_data = PackedInt32Array(1507312, 2490369, 805306369, 1507318, 24903
 
 [node name="Character" parent="." node_paths=PackedStringArray("toilet") instance=ExtResource("1_2i77r")]
 position = Vector2(70, 60)
+max_speed = 200
 toilet = NodePath("../Toilet")
+level = "res://Scenes/ikea.tscn"
+level2 = ExtResource("6_n3l5e")
 
 [node name="Control" parent="Character/HUD" index="0"]
-offset_left = -706.0
-offset_top = -200.0
-offset_right = -706.0
-offset_bottom = -200.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="ProgressBar" parent="Character/HUD/Control" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -89.0
+offset_right = 114.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Find the toilet" parent="Character/HUD" index="4"]
 visible = false

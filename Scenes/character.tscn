@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=26 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://dutdtbbi0qkll" path="res://Assets/Art/Poop stain.png" id="2_pcg3d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ma67s62ucg78" path="res://Assets/Art/Characters/Player sprite-sheet.png" id="3_mlx33"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
+[ext_resource type="Texture2D" uid="uid://c8i5mi1qo8g0p" path="res://Assets/Art/dwa.png" id="5_rs4yb"]
 [ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
 [ext_resource type="AudioStream" uid="uid://b7nyo40juc5id" path="res://Assets/Sounds/SFX/Impact noise.wav" id="6_spm2o"]
 
@@ -16,6 +17,10 @@ region = Rect2(0, 0, 32, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_56c3u"]
 atlas = ExtResource("3_mlx33")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymrq5"]
+atlas = ExtResource("5_rs4yb")
+region = Rect2(12, 0, 12, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_clmng"]
 atlas = ExtResource("3_mlx33")
@@ -45,6 +50,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymrq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymrq5")
+}],
+"loop": false,
+"name": &"kick",
 "speed": 5.0
 }, {
 "frames": [{
@@ -226,8 +242,10 @@ texture = ExtResource("2_pcg3d")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nkkf0")
-animation = &"browned"
+animation = &"kick"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="playerBox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -384,6 +402,7 @@ stream = ExtResource("6_spm2o")
 volume_db = -15.0
 
 [node name="Find the toilet" type="Panel" parent="HUD"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

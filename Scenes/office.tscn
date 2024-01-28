@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnxr5gytbnmy8" path="res://Assets/Art/Tileset.png" id="2_gjtne"]
 [ext_resource type="PackedScene" uid="uid://bukq4uqbqstc2" path="res://Scenes/toilet.tscn" id="3_4g2tf"]
 [ext_resource type="PackedScene" uid="uid://uea3erwvvvyu" path="res://Scenes/door horizontal.tscn" id="3_m2sgf"]
-[ext_resource type="PackedScene" uid="uid://cpsfvi0m5jbuu" path="res://Scenes/street.tscn" id="4_d7cy8"]
+[ext_resource type="PackedScene" uid="uid://cpsfvi0m5jbuu" path="res://Scenes/street.tscn" id="4_q08di"]
 [ext_resource type="PackedScene" uid="uid://cb77rkvr3w6sm" path="res://Scenes/teleporter.tscn" id="4_y5ha1"]
 [ext_resource type="PackedScene" uid="uid://bx1tgn6d4myxh" path="res://Scenes/door vertical.tscn" id="6_51nml"]
 [ext_resource type="PackedScene" uid="uid://cmifu1i8qxlkn" path="res://Scenes/fog.tscn" id="7_p6qcf"]
@@ -778,10 +778,10 @@ layer_1/tile_data = PackedInt32Array(720894, 4259841, 1, 655370, 4259841, 1, -13
 position = Vector2(9, 17)
 max_speed = 200
 toilet = NodePath("../Toilet")
-level2 = ExtResource("4_d7cy8")
+level2 = ExtResource("4_q08di")
 
-[node name="youWin" parent="Character/HUD" index="2"]
-visible = true
+[node name="youLose" parent="Character/HUD" index="3"]
+visible = false
 
 [node name="NPC" parent="." instance=ExtResource("10_rsxa5")]
 position = Vector2(449, -52)
@@ -1334,7 +1334,6 @@ polygon = PackedVector2Array(560, 1056, 560, 992, 800, 992, 800, 1055, 688, 1056
 
 [node name="Dialog Starter" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["GET OUTTA HERE!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter"]
 position = Vector2(374, -48)
@@ -1344,7 +1343,6 @@ debug_color = Color(0.396078, 0.611765, 0, 0.419608)
 [node name="Dialog Starter2" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 position = Vector2(358, 85)
 canvas = NodePath("../Character/HUD")
-text = Array[String](["HEY!", "GET OUTTA HERE!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter2"]
 position = Vector2(17, -37)
@@ -1353,7 +1351,6 @@ debug_color = Color(0.427451, 0.603922, 0, 0.419608)
 
 [node name="Dialog Starter3" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["PISS OFF!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter3"]
 position = Vector2(376, 144)
@@ -1362,7 +1359,6 @@ debug_color = Color(0.521569, 0.572549, 0, 0.419608)
 
 [node name="Dialog Starter4" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["YOU SAW NOTHING!!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter4"]
 position = Vector2(1424, 3.25)
@@ -1371,7 +1367,6 @@ debug_color = Color(0.466667, 0.592157, 0, 0.419608)
 
 [node name="Dialog Starter5" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["GET OUT!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter5"]
 position = Vector2(1680, 10)
@@ -1380,7 +1375,6 @@ debug_color = Color(0.470588, 0.588235, 0, 0.419608)
 
 [node name="Dialog Starter6" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["have you finished that report yet???"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter6"]
 position = Vector2(1343.5, 426)
@@ -1389,7 +1383,6 @@ debug_color = Color(0.435294, 0.6, 0, 0.419608)
 
 [node name="Dialog Starter7" parent="." node_paths=PackedStringArray("canvas") instance=ExtResource("9_fytiy")]
 canvas = NodePath("../Character/HUD")
-text = Array[String](["YOU!!", "You're always going to the toilet!!", "What's wrong with you?!", "This is what's wrong with your generation!", "No one wants to do any hard work anymore!!", "How will this bring the shareholders value?!", "What are you still doing here?!", "Get back to work!!!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialog Starter7"]
 position = Vector2(569, 1331)

@@ -10,6 +10,7 @@ size = Vector2(2, 2)
 size = Vector2(4, 4)
 
 [node name="Toilet" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_wm1bh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

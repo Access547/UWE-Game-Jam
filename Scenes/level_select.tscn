@@ -1,12 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtlrx6fe1622i"]
+[gd_scene load_steps=7 format=3 uid="uid://dtlrx6fe1622i"]
 
 [ext_resource type="PackedScene" uid="uid://c5c683vli4j48" path="res://Scenes/level_button.tscn" id="1_tgv5o"]
 [ext_resource type="Script" path="res://Scenes/levelSelect.gd" id="1_tjo5k"]
+[ext_resource type="Texture2D" uid="uid://baqmgo2j2scnt" path="res://Assets/Art/Icons/House icon.png" id="3_2yn7k"]
+[ext_resource type="Texture2D" uid="uid://hxxjhgktfacw" path="res://Assets/Art/Icons/Office icon.png" id="4_2qk81"]
+[ext_resource type="Texture2D" uid="uid://tixlt8nou7ws" path="res://Assets/Art/Icons/Streets icon.png" id="5_l8pyf"]
+[ext_resource type="Texture2D" uid="uid://3x3fcrrmradw" path="res://Assets/Art/Icons/Ikea icon.png" id="6_hyrv1"]
 
 [node name="Level Select" type="Node2D"]
 script = ExtResource("1_tjo5k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Level Select"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 15
@@ -22,17 +40,25 @@ columns = 5
 [node name="Level Button" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2
 level = "res://Scenes/House.tscn"
+texture = ExtResource("3_2yn7k")
+levelName = "House"
 
 [node name="Level Button2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2
 level = "res://Scenes/office.tscn"
+texture = ExtResource("4_2qk81")
+levelName = "Office"
 
 [node name="Level Button3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2
 level = "res://Scenes/street.tscn"
+texture = ExtResource("5_l8pyf")
+levelName = "Streets"
 
 [node name="Level Button4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2
+texture = ExtResource("6_hyrv1")
+levelName = "Ikea"
 
 [node name="Level Button5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_tgv5o")]
 layout_mode = 2

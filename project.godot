@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UWE Jam"
-run/main_scene="res://Scenes/House.tscn"
+run/main_scene="res://Scenes/mainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 

@@ -38,11 +38,15 @@ func get_input():
 func player_movement(delta):
 	input = get_input()
 	if input == Vector2.ZERO:
+		if $Sprite2D.animation != "idle":
+			$Sprite2D.play("idle")
 		if velocity.length() > (friction * delta):
 			velocity -= velocity.normalized() * (friction * delta)
 		else:
 			velocity = Vector2.ZERO
 	else:
+		if $Sprite2D.animation != "walk":
+			$Sprite2D.play("walk")
 		velocity += (input * accel * delta)
 		velocity = velocity.limit_length(max_speed)
 	move_and_slide()
@@ -119,4 +123,5 @@ func ChangeCanMove():
 
 func _on_next_level_pressed():
 	get_tree().change_scene_to_packed(level2)
+	NumberManager.canMove = true
 		

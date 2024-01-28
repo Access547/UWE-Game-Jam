@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://curbhia1yxrys"]
+[gd_scene load_steps=7 format=3 uid="uid://curbhia1yxrys"]
 
 [ext_resource type="Script" path="res://Kickable.gd" id="1_niqf2"]
+[ext_resource type="PackedScene" uid="uid://bwlfkrtaru6ay" path="res://particle/woodExplode.tscn" id="2_80ove"]
 [ext_resource type="Texture2D" uid="uid://b73wm6sadn0to" path="res://Assets/Art/Characters/1.png" id="2_u08yi"]
 [ext_resource type="AudioStream" uid="uid://w32gt812bjvi" path="res://Assets/Sounds/SFX/Scream 1.wav" id="3_c3ajo"]
 
@@ -14,6 +15,7 @@ size = Vector2(22, 26)
 collision_layer = 32
 collision_mask = 9
 script = ExtResource("1_niqf2")
+sceene = ExtResource("2_80ove")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_u08yi")

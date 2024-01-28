@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwlfkrtaru6ay"]
+
+[ext_resource type="Script" path="res://particle/Particle.gd" id="1_f6ev3"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.15
+emission_shape = 1
+emission_sphere_radius = 3.3
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 237.95
+initial_velocity_max = 237.95
+angular_velocity_min = 80.0
+angular_velocity_max = 720.0
+angle_min = 720.0
+angle_max = 720.0
+color = Color(0.329412, 0.160784, 0, 1)
+script = ExtResource("1_f6ev3")

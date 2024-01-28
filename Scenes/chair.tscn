@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsotfdjnqq78w"]
+[gd_scene load_steps=7 format=3 uid="uid://dsotfdjnqq78w"]
 
 [ext_resource type="Script" path="res://Kickable.gd" id="1_ypy4q"]
 [ext_resource type="Texture2D" uid="uid://cx75pbnw32ugj" path="res://Assets/Art/Chair (1).png" id="2_6fknp"]
 [ext_resource type="AudioStream" uid="uid://cgajdbpvlnau5" path="res://Assets/Sounds/SFX/Smash wood.wav" id="3_hnm14"]
+[ext_resource type="PackedScene" uid="uid://bwlfkrtaru6ay" path="res://particle/woodExplode.tscn" id="4_03tgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yhpa"]
 size = Vector2(20, 15)
@@ -14,6 +15,7 @@ size = Vector2(20, 15)
 collision_layer = 32
 collision_mask = 9
 script = ExtResource("1_ypy4q")
+sceene = ExtResource("4_03tgo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6fknp")

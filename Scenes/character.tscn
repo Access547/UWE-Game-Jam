@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck777aksqa1dj"]
+[gd_scene load_steps=17 format=3 uid="uid://ck777aksqa1dj"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_ph1sw"]
 [ext_resource type="Texture2D" uid="uid://foouufiglu3v" path="res://Assets/Art/Player_sprite.png" id="2_bl4ww"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_sytrh"]
 [ext_resource type="Script" path="res://Scripts/Poop Meter.gd" id="3_yp88r"]
 [ext_resource type="PackedScene" uid="uid://bu0fl23dqgk37" path="res://Scenes/find_the_toilet.tscn" id="6_2likp"]
+[ext_resource type="AudioStream" uid="uid://b7nyo40juc5id" path="res://Assets/Sounds/SFX/Impact noise.wav" id="6_spm2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ptw"]
 size = Vector2(9, 16)
@@ -17,6 +18,65 @@ size = Vector2(5.2637, 0.968359)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrcxs"]
 bg_color = Color(0.509804, 0.184314, 0.0509804, 1)
+
+[sub_resource type="Animation" id="Animation_abwnp"]
+resource_name = "Default"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1e+06, 1e+06, 1e+06),
+"update": 0,
+"values": [0.0, 0.5, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../youLose/Impact:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ChangeCanMove"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_642qr"]
+_data = {
+"Default": SubResource("Animation_abwnp")
+}
 
 [sub_resource type="Animation" id="Animation_g5rid"]
 resource_name = "Default"
@@ -144,6 +204,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="HUD/Control"]
+visible = false
 layout_mode = 2
 offset_left = 50.0
 offset_right = 270.0
@@ -155,32 +216,55 @@ value = 30.0
 show_percentage = false
 script = ExtResource("3_yp88r")
 
-[node name="Next Level" type="Button" parent="HUD"]
-visible = false
-offset_left = 129.0
-offset_top = 136.0
-offset_right = 214.0
-offset_bottom = 167.0
-text = "Next level"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="youWin" type="Panel" parent="HUD"]
 visible = false
-offset_left = 112.0
-offset_top = 71.0
-offset_right = 232.0
-offset_bottom = 110.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/youWin"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 151.0
-offset_bottom = 44.0
-text = "You shittedwe"
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]BOWELS CLEARED[/center]"
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Next Level" type="Button" parent="HUD/youWin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = 24.5
+offset_right = 42.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next level"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/youWin"]
+libraries = {
+"": SubResource("AnimationLibrary_642qr")
+}
 
 [node name="youLose" type="Panel" parent="HUD"]
 visible = false
@@ -237,18 +321,21 @@ theme_override_colors/icon_normal_color = Color(0.0980392, 0.0980392, 0.0980392,
 theme_override_font_sizes/font_size = 12
 text = "Menu"
 
-[node name="Panel" type="Panel" parent="HUD"]
-visible = false
+[node name="Impact" type="AudioStreamPlayer" parent="HUD/youLose"]
+stream = ExtResource("6_spm2o")
+volume_db = -15.0
+
+[node name="Find the toilet" type="Panel" parent="HUD"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Find the toilet" parent="HUD/Panel" instance=ExtResource("6_2likp")]
+[node name="Find the toilet" parent="HUD/Find the toilet" instance=ExtResource("6_2likp")]
 layout_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Panel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Find the toilet"]
 libraries = {
 "": SubResource("AnimationLibrary_gv78i")
 }

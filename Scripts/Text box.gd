@@ -28,7 +28,7 @@ func _process(delta):
 	
 func UpdateText():
 	canProgress = false
-	if currentText <= dialog.size() - 1:
+	if currentText <= dialog.size() -1:
 		text.text = dialog[currentText]
 		timer.start(2)
 		
